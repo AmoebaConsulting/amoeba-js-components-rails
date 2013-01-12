@@ -13,15 +13,12 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "amoeba-js-components-rails"
   gem.homepage = "http://github.com/cbarton/amoeba-js-components-rails"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "c.chris.b@gmail.com"
-  gem.authors = ["Chris Barton"]
-  # dependencies defined in Gemfile
+  gem.summary = %Q{Several components for the Amoeba JS framework}
+  gem.email = "cbarton@amoe.ba"
+  gem.authors = ["Chris Barton, Amoeba Consulting LLC."]
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -30,14 +27,6 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
 end
 
 task :default => :test
