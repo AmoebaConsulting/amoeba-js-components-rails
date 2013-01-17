@@ -1,5 +1,10 @@
 #= require vendor/backbone.syphon
 
+# Rails convention for booleans
+Backbone.Syphon.InputReaders.register('checkbox', ($el) ->
+  if $el.prop('checked') then '1' else '0'
+)
+
 class Amoeba.Components.FormWatcher
   constructor: (@model, @$form, @options = {}) ->
     @root = @options.root ? @model.paramRoot
@@ -17,7 +22,7 @@ class Amoeba.Components.FormWatcher
     ).each( (i, element) =>
       $element = $(element)
       @set(Backbone.Syphon.serialize(@$form[0], include: [$element.attr('name')])[@root]) if $element.val()
-      @elements.push $element.on('blur', @updateModel)
+      @elements.push $element.on('change', @updateModel)
     )
 
   updateModel: (e) =>
