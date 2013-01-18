@@ -1,5 +1,6 @@
 class Amoeba.Components.ComboButton
   constructor: (@$container, @options) ->
+    @on = if @$container.hasClass(@options.offState) then false else true
     @$button = @$container.find(@options.button)
     @bind()
 
@@ -7,11 +8,18 @@ class Amoeba.Components.ComboButton
     @$button.on('click', @onClick)
 
   onClick: =>
-    if @$container.hasClass(@options.offState)
-      @$container.removeClass(@options.offState).addClass("#{@options.onState} cancel-hover")
+    if @on
+      @options.onTransitionOff?()
+    else
+      @$container.addClass('cancel-hover')
       @$button.one 'mouseleave', => @$container.removeClass('cancel-hover')
       @options.onTransitionOn?()
-    else
-      @$container.removeClass(@options.onState).addClass(@options.offState)
-      @options.onTransitionOff?()
+    @toggle()
     false
+
+  toggle: =>
+    if @on
+      @$container.removeClass(@options.onState).addClass(@options.offState)
+    else
+      @$container.removeClass(@options.offState).addClass(@options.onState)
+    @on = not @on
