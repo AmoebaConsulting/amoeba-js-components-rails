@@ -1,1 +1,1 @@
-rvm gemset create amoeba-js-components-rails --create
+rvm gemset use amoeba-js-components-rails --create
