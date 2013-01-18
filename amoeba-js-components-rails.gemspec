@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "amoeba-js-components-rails"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Barton, Amoeba Consulting LLC."]
-  s.date = "2013-01-17"
+  s.date = "2013-01-18"
   s.email = "cbarton@amoe.ba"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_amoeba-js-components-rails.rb",
     "vendor/assets/javascripts/amoeba-components.js.coffee",
+    "vendor/assets/javascripts/amoeba-components/combo_button.js.coffee",
     "vendor/assets/javascripts/amoeba-components/form_watcher.js.coffee",
     "vendor/assets/javascripts/vendor/backbone.syphon.js"
   ]
