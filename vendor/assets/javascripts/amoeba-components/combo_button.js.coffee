@@ -1,12 +1,8 @@
 class Amoeba.Components.ComboButton
   constructor: (@$container, @options) ->
-    if @$container.length == 1
-      @on = if @$container.hasClass(@options.offState) then false else true
-      @$button = @$container.find(@options.button)
-      @bind()
-    else
-      @$container.each (i, container) =>
-        new @constructor($(container), @options)
+    @on = if @$container.hasClass(@options.offState) then false else true
+    @$button = @$container.find(@options.button)
+    @bind()
 
   bind: ->
     @$button.on('click', @onClick)
